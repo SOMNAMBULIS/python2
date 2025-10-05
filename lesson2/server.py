@@ -37,7 +37,7 @@ def check(login):
 
 def main():
 	try:
-		HOST = ('127.0.0.1',7777)
+		HOST = ('127.0.0.1',7778)
 		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
 			sock.bind(HOST)
 			sock.listen()
@@ -45,7 +45,7 @@ def main():
 			conn, addr = sock.accept()
 			while True:
 				data = conn.recv(1024).decode()
-
+				print(data)
 				comm = data.split('; ')[0].split(':')[1]
 				login = data.split('; ')[1].split(':')[1]
 				password = data.split('; ')[2].split(':')[1]
@@ -55,11 +55,14 @@ def main():
 					case 'singin':
 						log(conn, login, password)
 					case _:
+						conn.close()
+						print(111, conn)
 						break
 
 
 	except Exception as ex:
 		print(f'Fail server: {ex}')		
+	
 		
 if __name__ == '__main__':
 	main()

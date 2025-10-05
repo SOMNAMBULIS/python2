@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <nav>
+            {%if login%}
+            <p>Добрый день {{login}}</p>
+            {%endif%}
+            <ul class="main_menu">
+                {%block main_menu%}
+                    {%if not login%}
+                        <li><a href="/login/" class="button_a">Войти</a></li>
+                        <li><a href="/register/" class="button_a">Регистрация</a></li>
+                    {%else%}
+                        <li><a href="/duct/">Утка</a></li>
+                        <li><a href="/fox/1/">Лиса</a></li>
+                        <li><a href="/weather/minsk/">Погода</a></li>
+                        <li><a href="/quiz/">Квиз</a></li>
+                        <li><a href="/unlogin/">Выйти</a></li>
+                    {%endif%}
+                {%endblock%}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {%block content%}
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias ullam voluptates eum et? Perspiciatis sunt eveniet architecto, quod quisquam laborum. Blanditiis nemo tempore deserunt eligendi facilis id libero facere non.
+        {%endblock%}
+    </main>
+    <footer>
+        {%block footer%}
+
+        {%endblock%}
+    </footer>
+
+
+
+</body>
+</html>

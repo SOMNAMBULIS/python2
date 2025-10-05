@@ -14,7 +14,7 @@ def log(sock):
 
 def main():
 	try:
-		HOST = ('127.0.0.1',7777)
+		HOST = ('127.0.0.1',7778)
 		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
 			sock.connect(HOST)
 			while True:
@@ -26,7 +26,6 @@ def main():
 					case _:
 						print('Bye')
 						send_comm(sock,'command:exit; login:0; password:0')
-						#send_comm(sock,' login:0; password:0')
 						break
 		
 	except Exception as ex:

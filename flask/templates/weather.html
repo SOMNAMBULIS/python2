@@ -1,0 +1,19 @@
+{%extends "index.html"%}
+
+{%block main_menu%}
+    {{super()}}
+    <li><a href="/">На главную</a></li>
+{%endblock%}
+
+{%block content%}
+    <form action="" method="post">
+        <input type="text" name="city">
+    </form>
+    {%if not error%}
+        <p>Погода в {{city}}</p>
+        <p>Погода {{weather_}}</p>
+        <p>Температура {{temp}} градусов</p>
+    {%else%}
+        <p style="color: red;">{{city}} город не существует</p>
+    {%endif%}
+{%endblock%}

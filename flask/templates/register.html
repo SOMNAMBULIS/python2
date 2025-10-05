@@ -1,0 +1,70 @@
+{%extends "index.html"%}
+
+{%block main_menu%}
+    {{super()}}
+    <li><a href="/">На главную</a></li>
+{%endblock%}
+
+{%block content%}
+    <form action="" method="post">
+        <p>
+            <label for="first_name">Имя</label>
+            <input type="text" name="first_name" id="first_name" value="{{l['first_name']}}">
+            {%if err['first_name']%}
+            <label for="" style="color: red;">Имя должно состоять из кирилицы</label>
+            {%endif%}
+        </p>
+        <p>
+            <label for="last_name">Фамилия</label>
+            <input type="text" name="last_name" id="last_name" value="{{l['last_name']}}">
+            {%if err['last_name']%}
+            <label for="" style="color: red;">Фамилия должно состоять из кирилицы</label>
+            {%endif%}
+        </p>
+        <p>
+            <label for="login">Логин</label>
+            <input type="text" name="login" id="login" value="{{l['login']}}">
+            {%if err['login']%}
+            <label for="" style="color: red;">Логин должен состоять из латинские цифры и _. От 6 до 20 символов</label>
+            {%endif%}
+        </p>
+        <p>
+            <label for="password">Пароль</label>
+            <input type="password" name="password1" id="password1">
+            {%if err['password1']%}
+            <label for="" style="color: red;">Пароль должен состоять обязательно хотя бы 1 латинская маленькая, 1 заглавная и  1 цифр. От 8 до 15 символов </label>
+            {%endif%}
+        </p>
+        
+        <p>
+            <label for="password">Потвердите пароль</label>
+            <input type="password" name="password2" id="password2">
+            {%if err['password2']%}
+            <label for="" style="color: red;">Пароли должны совпадать</label>
+            {%endif%}
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="{{l['email']}}">
+            {%if err['email']%}
+            <label for="" style="color: red;">Не вверный email</label>
+            {%endif%}
+        </p>
+        <p>
+            <label for="age">Возраст</label>
+            <input type="number" name="age" id="age" value="{{l['age']}}">
+            {%if err['age']%}
+            <label for="" style="color: red;">Возраст от 12 до 100</label>
+            {%endif%}
+        </p>
+        <p>
+            {%if err['copy']%}
+            <label for="" style="color: red;">Пользователь с таким логином уже существует</label>
+            {%endif%}
+        </p>
+        <p>
+            <button type="submit">Зарегистрироваться</button>
+        </p>
+    </form>
+{%endblock%}

@@ -1,0 +1,16 @@
+{%extends "index.html"%}
+
+{%block main_menu%}
+    {{super()}}
+    <li><a href="/">На главную</a></li>
+{%endblock%}
+
+{%block content%}
+    {%if href!=[]%}
+    {%for i in href%}
+    <p><img src="{{i}}"></p>
+    {%endfor%}
+    {%else%}
+    <p>Количество лисичек должно быть от 1 до 10</p>
+    {%endif%}
+{%endblock%}

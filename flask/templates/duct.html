@@ -1,0 +1,10 @@
+{%extends "index.html"%}
+
+{%block main_menu%}
+    {{super()}}
+    <li><a href="/">На главную</a></li>
+{%endblock%}
+{%block content%}
+    <p>Рандомная утка №{{num}}</p>
+    <p><img src="{{href}}"></p>
+{%endblock%}
